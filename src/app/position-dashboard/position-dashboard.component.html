@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-tab-group [selectedIndex]="selectedIndex">
+    <mat-tab *ngFor="let val of tabData;" label="{{val.name}}">
+      <div *ngIf="val.name == 'Positions'">
+        <app-position-grid></app-position-grid>
+        <!-- (addTab) = "onAddTab($event)" -->
+      </div>
+
+      <div *ngIf="val.name == 'Transactions'">
+        <app-transaction-grid></app-transaction-grid>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</mat-card>

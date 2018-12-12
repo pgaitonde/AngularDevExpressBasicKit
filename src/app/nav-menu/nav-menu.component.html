@@ -1,0 +1,105 @@
+<div *ngIf="nodes?.length">
+  <div *ngFor="let menu of nodes; let i = index">
+      <div *ngIf="menu && menu.havePermission">
+          <!-- Tooltip -->
+          <span
+              [class.expanded-parent]="!menu.isItemExpanded"
+              [matTooltip]="menu.routeName"
+              [matTooltipDisabled]="isDrawerOpened"
+              matTooltipPosition="right"
+              matTooltipShowDelay="600"
+          >
+              <div
+                  [routerLinkActive]="['active']"
+                  [class.expanded-parent]="menu.isItemExpanded"
+              >
+
+                  <!-- Parent nodes -->
+                  <ng-container *ngIf="menu.childRoutes.length; else childNode">
+
+                      <a
+                          class="menu"
+                          [class.active]="shouldHighlight(menu)"
+                          [class.uppercase]="menu.parentNodeInd === 1"
+                          (click)="onParentNodeClick(menu)"
+                      >
+
+                          <!-- Menu icon -->
+                          <div class="menu-icon">
+                              <mat-icon *ngIf="menu.parentNodeInd === 1">{{ menu.nodeIcon }}</mat-icon>
+                              <span
+                                  class="menu-icon-label"
+                                  *ngIf="menu.nodeIconLabel && !isDrawerOpened"
+                              >
+                                  {{ menu.nodeIconLabel }}
+                              </span>
+                          </div>
+
+                          <!-- Menu label -->
+                          <span
+                              class="menu-label"
+                              [class.child-menu-label]="menu.parentNodeInd === 0"
+                          >
+                              {{ menu.routeName }}
+                          </span>
+
+                          <!-- Expand/Collapse right icon -->
+                          <mat-icon
+                              class="dropdown-icon"
+                              [class.rotate-arrow]="menu.isItemExpanded"
+                          >
+                              keyboard_arrow_down
+                          </mat-icon>
+                      </a>
+                  </ng-container>
+
+                  <!-- Child nodes -->
+                  <ng-template #childNode>
+                      <a
+                          class="menu"
+                          [class.active]="shouldHighlightChild(menu)"
+                          [class.uppercase]="menu.parentNodeInd === 1"
+                          [routerLink]="menu.routeUrl"
+                          (click)="onChildNodeClick(menu)"
+                      >
+
+                          <!-- Menu icon -->
+                          <mat-icon
+                              class="menu-icon"
+                              *ngIf="menu.parentNodeInd === 1"
+                          >
+                              {{ menu.nodeIcon }}
+                          </mat-icon>
+
+                          <!-- Menu label -->
+                          <span
+                              class="menu-label"
+                              matRipple
+                              [class.child-menu-label]="menu.parentNodeInd === 0"
+                          >
+                              {{ menu.routeName }}
+                          </span>
+                      </a>
+                  </ng-template>
+
+              </div>
+
+          </span>
+
+          <!-- Show children -->
+          <div
+              class="children children-div"
+              *ngIf="menu.childRoutes.length"
+              [class.collapse-div]="!menu.isItemExpanded"
+          >
+
+              <app-nav-menu
+                  [nodes]="menu.childRoutes"
+                  [isDrawerOpened]="isDrawerOpened"
+              >
+              </app-nav-menu>
+
+          </div>
+      </div>
+  </div>
+</div>

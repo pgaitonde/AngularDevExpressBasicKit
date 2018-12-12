@@ -1,0 +1,36 @@
+[
+    {
+        "havePermission": true,
+        "childRoutes": [],
+        "adjRoutes": [],
+        "routeNum": 1,
+        "routeCode": "researchCenter",
+        "routeName": "Dashboard",
+        "routeUrl": "/research",
+        "moduleNodeInd": 0,
+        "parentNodeInd": 1,
+        "adjNodeInd": 0,
+        "nodeIcon": "public",
+        "nodeIconLabel": "",
+        "parentRouteNum": 0,
+        "adjRouteNum": 0,
+        "seqNum": 1
+    },
+    {
+        "havePermission": true,
+        "childRoutes": [],
+        "adjRoutes": [],
+        "routeNum": 1,
+        "routeCode": "quants",
+        "routeName": "Charts",
+        "routeUrl": "/quants",
+        "moduleNodeInd": 0,
+        "parentNodeInd": 1,
+        "adjNodeInd": 0,
+        "nodeIcon": "bar_chart",
+        "nodeIconLabel": "",
+        "parentRouteNum": 0,
+        "adjRouteNum": 0,
+        "seqNum": 2
+    }
+]

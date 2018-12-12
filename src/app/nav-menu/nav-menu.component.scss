@@ -1,0 +1,110 @@
+//importing primary and secondary colors 
+@import "../../assets/style/internal/colors.scss";
+
+.menu {
+    width: 256px;
+    padding: 2px;
+    height: 48px;
+    cursor: pointer;
+    box-sizing: border-box;
+    outline: none;
+    overflow: hidden;
+    display: flex;
+  }
+  
+  
+  .menu-label {
+    padding: 13px;
+    flex-grow: 1;
+    position: relative;
+    top: -1px;
+  }
+  
+  .child-menu-label {
+    padding-left: 56px;
+  }
+  
+  .children {
+    background: rgba(0, 0, 0, 0.05);
+    font-size: 14px !important;
+    font-weight: normal;
+  }
+  
+  .expanded-parent {
+    background: rgba(0, 0, 0, 0.05);
+    font-weight: 500;
+  }
+  
+  .active {
+    background: #0197aa;//#FFA726;
+    color: #fff !important;
+  }
+  
+  mat-icon {
+    padding: 10px;
+    cursor: pointer;
+    width: unset;
+  }
+  
+  .menu-icon-label {
+    position: relative;
+    top: 0px;
+    left: -22px;
+    font-size: 9px;
+    padding: 0px 2px;
+    background: #FFF;
+    font-weight: 500;
+    border-radius: 3px;
+  }
+  
+  .active .menu-icon-label {
+    background: $clr-accent;
+    color: #fff !important;
+  }
+  
+  .menu-icon {
+    color: #fff;
+  }
+  
+  
+  .active mat-icon {
+    color: #fff !important;
+  }
+  
+  .dropdown-icon {
+    color: #fff;
+    transform: scale(0.7);
+    transition: transform 0.4s;
+    position: relative;
+    left: -20px;
+    top: 0.79rem;
+    padding: 0px;
+    height: 20px;
+  }
+  
+  .rotate-arrow {
+    transform: rotate(-180deg) scale(0.7)
+  }
+  
+  .children-div {
+    overflow: hidden;
+    max-height: 500px;
+    transition-duration: 0.4s;
+  }
+  
+  .collapse-div {
+    max-height: 0px !important;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .menu /deep/ .mat-ripple {
+    overflow: visible;
+  }
+  
+  .menu-label{
+    color:#fff;
+  }

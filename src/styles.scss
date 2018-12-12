@@ -1,1 +1,192 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "assets/style/bootstrap/bootstrap.min.css";
+// @import url('https://fonts.googleapis.com/css?family=Roboto');
+// @import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import "assets/style/fonts/roboto-family.css";
+// @import "assets/style/fonts/montserrat-family.css";
+// @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "assets/style/internal/theme.scss";
+@import "assets/style/internal/colors.scss";
+
+* {
+  font-family: 'Roboto', serif;
+}
+
+body {
+  background-color: mat-color($custom-theme-primary, 50);
+}
+
+.mat-card {
+  padding: 12px !important
+}
+
+.ideaButton {
+  background-color: #42b142 !important;
+  padding: 0;
+  border: none;
+  background: none;
+  outline: none !important;
+  float: right;
+}
+
+.bulb_icon {
+  margin-top: -3px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+
+/*Audit flags*/
+.audit-history-indicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.nochange-flag {
+  background-color: #E0E0E0 !important
+}
+
+.notable-flag {
+  background-color: #F0BE6F !important
+}
+
+.significant-flag {
+  background-color: #FF8351 !important
+}
+
+.critical-flag {
+  background-color: #FF3823 !important;
+  color: white !important;
+}
+
+.nochange-flag-indicator {
+  color: #E0E0E0 !important
+  // @extend .audit-history-indicator;
+  // @extend .nochange-flag
+}
+
+.notable-flag-indicator {
+  color: #F0BE6F !important
+}
+
+.significant-flag-indicator {
+  color: #FF8351 !important
+}
+
+.critical-flag-indicator {
+  color: #FF3823 !important;
+}
+
+
+#auditHistoryPivotGrid .dx-pivotgrid-area-data tbody td{
+    text-align: center !important;
+}
+#auditHistoryPivotGrid .dx-area-description-cell .dx-pivotgrid-toolbar .dx-button .dx-icon {
+  color:green !important
+}
+
+#audit-history-dialog .mat-dialog-content{
+  overflow: hidden;
+}
+
+/* Hides all the html scrollbars anywhere in the DOM */
+
+.invisible-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.rms-snackbar {
+  background-color: $clr-base; // color: $clr-accent;
+}
+
+.wip {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center !important;
+  color: $clr-accent;
+  margin-bottom: 5px;
+}
+
+
+.app-mat-chip-list .singleChip .mat-chip-list-wrapper,
+.chip-list .mat-chip-list-wrapper {
+  height: 46px !important;
+}
+
+.dx-overlay-wrapper {
+  z-index: 100 !important;
+}
+
+.center {
+  text-align: center;
+}
+
+
+.dialog-title {
+  background: $clr-dark-base;
+  color: white;
+  padding: 15px !important;
+  margin-bottom: 0px !important;
+  margin-right: -24px !important;
+  margin-left: -24px !important;
+  margin-top: -24px !important;
+}
+
+/*
+ *Scrollbar 
+ */
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.15);
+  box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+
+@media only screen and (max-width: 500px) {
+
+  .app-mat-chip-list .singleChip .mat-chip-list-wrapper,
+  .chip-list .mat-chip-list-wrapper {
+    height: 31px !important;
+  }
+
+  .wip {
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+
+    
+  #audit-history-dialog .mat-dialog-content{
+    overflow-y: hidden;
+    overflow-x: scroll !important;
+  }
+
+  .pdf-dialog-conatiner .mat-dialog-container{
+    overflow-y: hidden !important;
+  }
+
+  .executive-info-dialog,.alert-ideate-dialog .mat-dialog-container{
+    width:auto !important;
+    max-width: none !important;
+  }
+
+  .executive-info-dialog,.alert-ideate-dialog .cdk-overlay-pane{
+    width:auto !important;
+    max-width: none !important;
+  }
+}

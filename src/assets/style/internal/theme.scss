@@ -1,0 +1,81 @@
+/* For use in src/lib/core/theming/_palette.scss */
+@import '~@angular/material/theming';
+@include mat-core();
+
+
+// define a real custom palette (using http://mcg.mbitson.com)
+/* For use in src/lib/core/theming/_palette.scss */
+$mat-basepalette: (
+    50 : #e7ebef,
+    100 : #c4ccd8,
+    200 : #9daabe,
+    300 : #7688a3,
+    400 : #586f90,
+    500 : #3b557c,
+    600 : #354e74,
+    700 : #2d4469,
+    800 : #263b5f,
+    900 : #192a4c,
+    A100 : #8bb0ff,
+    A200 : #588dff,
+    A400 : #256aff,
+    A700 : #0b59ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$mat-accentpalette: (
+    50 : #eaf5f9,
+    100 : #cae7ef,
+    200 : #a7d7e5,
+    300 : #84c7db,
+    400 : #69bbd3,
+    500 : #4fafcb,
+    600 : #48a8c6,
+    700 : #3f9fbe,
+    800 : #3696b8,
+    900 : #2686ac,
+    A100 : #eaf9ff,
+    A200 : #b7e9ff,
+    A400 : #84daff,
+    A700 : #6ad2ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+// mat-palette accepts $palette-name, main, lighter and darker variants
+$custom-theme-primary: mat-palette($mat-basepalette, 500, 300, 800);
+$custom-theme-accent: mat-palette($mat-accentpalette,700,300,900);
+$custom-theme-warn: mat-palette($mat-red, 500);
+
+$custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
+
+@include angular-material-theme($custom-theme);

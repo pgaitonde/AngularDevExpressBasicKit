@@ -1,0 +1,91 @@
+<nav
+    class="navbar fixed-top"
+    [class.maximized-navbar]="fullScreenMode !== fullScreenModeEnum.None"
+>
+    <div class="navbar-header">
+
+        <!-- Hamburger icon -->
+        <div
+            class="navbar-action-icon-container"
+            [class.ripple]="isExpanded"
+            (click)="toggleDrawer()"
+        >
+            <mat-icon class="drawer-hamburger">menu</mat-icon>
+        </div>
+
+        <!-- Title -->
+        <div class="navbar-display">
+            <!-- Brand -->
+            <a
+                class="navbar-brand"
+                (click)="goToHome()"
+            >
+            <span class='navbar-title logo-first-half'>
+                    B
+                </span>
+            <span class="brand-name logo-first-half">E N I F I T </span>
+            
+            <span class='navbar-title logo-second-half'>
+                    S
+                </span>
+            <span class="brand-name  logo-second-half">T R E E T </span>
+            
+            <span class='navbar-title logo-third-half'>
+                    P
+                </span>
+            <span class="brand-name logo-third-half">A R T N E R S </span>
+            </a>
+            
+        </div>
+
+        <!-- Navbar options -->
+        <div
+            class="navbar-options"
+        >
+            <!-- Action items -->
+            <div class="action-buttons">
+                    
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+<div
+    class="drawer"
+    [class.condensed-drawer]="!isExpanded"
+    [class.maximized-drawer]="fullScreenMode !== fullScreenModeEnum.None"
+    [class.maximized-expanded-drawer]="isExpanded && fullScreenMode !== fullScreenModeEnum.None"
+>
+
+    <!-- Menu list inside the drawer -->
+    <!-- <perfect-scrollbar class="container" [config]="config"> -->
+    <app-nav-menu
+        *ngIf="menuItems.length && !fetchingMenuItems"
+        class="menu-list"
+        isRoot="true"
+        [nodes]="menuItems"
+        [isDrawerOpened]="isExpanded"
+    >
+    </app-nav-menu>
+
+</div>
+
+<!-- All the remaining content -->
+<div
+    class="main-content"
+    [class.squeezed-main-content]="isExpanded"
+    [class.full-screen-with-title]="fullScreenMode === fullScreenModeEnum.WithTitle"
+    [class.full-screen-without-title]="fullScreenMode === fullScreenModeEnum.WithoutTitle"
+>   
+    <!-- Left navigation drawer -->
+    <ng-content></ng-content>
+
+</div>
+
+<!-- Background overlay on phones when the navigation drawer has opened -->
+<div
+    [class.overlay]="isExpanded"
+    (click)="closeDrawer()"
+>
+</div>
